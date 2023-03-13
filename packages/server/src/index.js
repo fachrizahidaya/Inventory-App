@@ -7,10 +7,17 @@ const app = express();
 const path = require("path");
 const { join } = require("path");
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 app.use(express.json());
 app.use(cors());
+app.use("/Public", express.static(path.join(__dirname, "./Public")));
 app.use(bearerToken());
+
+const { product } = require("./admin/routers");
+const { user } = require("./user/routers");
+
+app.use("/user", user);
+app.use("/product", product);
 
 app.get("/api", (req, res) => {
   res.send(`Hello, this is my API`);

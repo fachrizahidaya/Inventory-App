@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { LandingUser } from "./user/pages/Landing";
 import { LoginUser } from "./user/pages/Login";
 import { RegisterUser } from "./user/pages/Register";
-import "./App.css";
+// import "./App.css";
 
 function App() {
   return (
